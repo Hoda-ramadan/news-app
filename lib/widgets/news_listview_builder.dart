@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/models/article_model.dart';
-
-import '../services/news_service.dart';
-import 'news_list_view.dart';
+import 'package:news_app2/models/artecal_model.dart';
+import 'package:news_app2/service/news_servise.dart';
+import 'package:news_app2/widgets/news_listview.dart';
 
 class NewsListViewBuilder extends StatefulWidget {
   const NewsListViewBuilder({super.key, required this.category});
@@ -27,21 +26,21 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
     return FutureBuilder<List<ArticleModel>>(
         future: future,
         builder: (context, snapshot) {
-        if (snapshot.hasData) {
+          if (snapshot.hasData) {
             return NewsListView(
-                articles: snapshot.data!,
+              articles: snapshot.data!,
             );
-        } else if (snapshot.hasError) {
+          } else if (snapshot.hasError) {
             return const SliverToBoxAdapter(
-                child: Text('oops  was an error, try later'),
+              child: Text('oops  was an error, try later'),
             );
-        } else {
+          } else {
             return const SliverToBoxAdapter(
-                child: Center(
+              child: Center(
                 child: CircularProgressIndicator(),
-                ),
+              ),
             );
-        }
+          }
         });
   }
 }

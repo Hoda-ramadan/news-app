@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:news_app/models/article_model.dart' show ArticleModel;
+import 'package:news_app2/models/artecal_model.dart';
 
 class NewsService {
   final Dio dio;
